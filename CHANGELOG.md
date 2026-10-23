@@ -2,6 +2,14 @@
 
 [← Overview](README.md)
 
+## 1.0.2 – 2026-10-23
+
+- New setting **Anonymize usernames** (Settings → General): shows a code such as “Account 3F9A”
+  instead of usernames and display names and hides profile pictures and user IDs – everywhere in
+  the app, including activity entries, error messages and notifications. Your own aliases stay
+  visible. See [Hiding usernames](docs/accounts.md#hiding-usernames-streaming).
+- New installations start in **English**. Existing installations keep their chosen language.
+
 ## 1.0.1 – 2026-10-23
 
 - The activity log no longer shows handle messages (result of the handle diagnostics, successful

@@ -9,9 +9,10 @@ restores the saved state. Invalid values are rejected with a message when saving
 
 | Setting | Default | Values / note |
 | --- | --- | --- |
-| Language | German | German (Deutsch), English |
+| Language | English | English, German (Deutsch) – also used as the language of the launched Roblox client |
 | Appearance | Dark | Dark, Light, Like Windows |
 | Accent color | Orange | 8 colors to choose from |
+| Anonymize usernames | off | Hides usernames, display names, profile pictures and user IDs – see [Hiding usernames](accounts.md#hiding-usernames-streaming) |
 | Start with Windows | off | Starts Nexus RAM minimized to the notification area when you sign in to Windows |
 | Minimize to the notification area when closing | off | The ✕ only hides the window; Nexus RAM keeps running in the notification area (bottom right of the taskbar) |
 | Notifications | on | Windows notifications for client started/ended, failed launch, sign-in errors and updates – only while the window is hidden |

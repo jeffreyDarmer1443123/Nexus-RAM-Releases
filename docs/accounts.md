@@ -136,6 +136,24 @@ Accounts that need action also appear on the **Overview** under “Needs attenti
 Launch, favorites, group and delete then apply to all selected accounts. `Esc` clears the
 selection, `Del` deletes (with confirmation).
 
+## Hiding usernames (streaming)
+
+For streams, videos or screenshots, turn on **Settings → General → Anonymize usernames** and click
+**Save**:
+
+- Instead of usernames and display names, every account is shown with a code such as
+  **“Account 3F9A”**. The code is derived from an internal ID – it always stays the same for an
+  account but reveals nothing about the name.
+- Profile pictures and user IDs are hidden.
+- **Your own aliases stay visible.** Give your accounts neutral aliases (e.g. “Farm 1”) if you want
+  readable names on stream.
+- This applies everywhere in the app: account list, launcher, launches, sessions, windows, top bar,
+  overview, groups – and also to texts that contain names, such as activity entries, error messages
+  and Windows notifications.
+
+Limits: the search still finds accounts by their real name, and a name that does not belong to a
+saved account yet (for example in a message while adding an account) is not replaced.
+
 ## Keyboard shortcuts
 
 | Keys | Function |

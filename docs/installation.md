@@ -57,8 +57,8 @@ differs, do not run the file and download it again.
 
 Installation folder: `%LOCALAPPDATA%\Nexus RAM`
 
-> The app interface starts in **German**. Switch it to English under
-> **Einstellungen → Allgemein → Sprache → English**, then click **Speichern** (Save).
+> The app starts in **English**. You can switch to German under **Settings → General → Language**,
+> then click **Save**. An existing installation keeps the language you chose before.
 
 ## Upgrading from Nexus RAM 0.x
 

@@ -16,8 +16,8 @@ maintained separately.
 1. Requirements: Windows 10 or 11 (64-bit) and the installed [Roblox Player](https://www.roblox.com/download).
 2. Download and run the installer. If Windows SmartScreen warns you, choose
    “More info” → “Run anyway” (explained in the [installation guide](docs/installation.md#windows-smartscreen)).
-3. Start Nexus RAM and go through the setup assistant. The interface starts in German – switch to
-   English under **Einstellungen → Allgemein → Sprache → English** (Settings → General → Language).
+3. Start Nexus RAM and go through the setup assistant. The interface is in English; German can be
+   chosen under **Settings → General → Language**.
 4. Under **Accounts → Add account**, add your first account – the easiest way is
    “Sign in through Roblox”.
 5. Under **Launcher**, enter a place ID or a Roblox link, select accounts and launch.

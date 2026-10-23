@@ -2,8 +2,8 @@
 
 [← Overview](../README.md)
 
-> **Language:** Nexus RAM starts in German. Switch to English under
-> **Einstellungen → Allgemein → Sprache → English** and click **Speichern**. All labels in this
+> **Language:** Nexus RAM starts in English (since version 1.0.2; earlier versions started in German).
+> You can switch to German under **Settings → General → Language** and **Save**. All labels in this
 > documentation refer to the English interface.
 
 ## Setup assistant
