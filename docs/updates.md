@@ -1,42 +1,41 @@
 # Updates
 
-[← Übersicht](../README.md)
+[← Overview](../README.md)
 
-## So kommen Updates zu dir
+## How updates reach you
 
-1. Beim Start fragt Nexus RAM bei GitHub nach, ob es eine neuere Version gibt
-   (Einstellung „Beim Start nach Updates suchen“, Standard: an).
-2. Gibt es eine, erscheint der Hinweis **„Version X verfügbar“**.
-3. Installieren: **Einstellungen → Info & Updates** → **Installieren und neu starten** → bestätigen.
-4. Der Download wird mit Fortschritt angezeigt, geprüft und installiert; Nexus RAM startet danach in
-   der neuen Version neu. Deine Accounts und Einstellungen bleiben erhalten.
+1. On start, Nexus RAM asks GitHub whether a newer version exists
+   (setting “Check for updates on start”, default: on).
+2. If there is one, the hint **“Version X available”** appears.
+3. Install: **Settings → About & updates** → **Install and restart** → confirm.
+4. The download is shown with progress, verified and installed; Nexus RAM then restarts in the new
+   version. Your accounts and settings are kept.
 
-Ohne automatische Prüfung kannst du jederzeit unter **Einstellungen → Info & Updates → Nach Updates
-suchen** manuell prüfen.
+Without the automatic check you can check manually at any time under
+**Settings → About & updates → Check for updates**.
 
-Laufende Startaufträge werden vor der Installation abgebrochen; laufende Roblox-Clients sind nicht
-betroffen.
+Running launches are cancelled before installing; running Roblox clients are not affected.
 
-## Wie Updates abgesichert sind
+## How updates are secured
 
-Ein Update wird nur installiert, wenn **alle** Prüfungen bestehen:
+An update is only installed if **all** checks pass:
 
-| Prüfung | Schutz gegen |
+| Check | Protects against |
 | --- | --- |
-| Quelle ist `https://github.com` (TLS mit Zertifikatsprüfung) | Umleitung auf fremde Server |
-| **Minisign-Signatur** mit dem in Nexus RAM eingebauten öffentlichen Schlüssel | Gefälschte oder manipulierte Installer – nur Updates, die mit dem privaten Schlüssel des Herausgebers signiert sind, werden akzeptiert |
-| **SHA-256-Prüfsumme** aus der Update-Information | Beschädigte oder unvollständige Downloads |
+| Source is `https://github.com` (TLS with certificate verification) | Redirection to foreign servers |
+| **Minisign signature** with the public key built into Nexus RAM | Forged or manipulated installers – only updates signed with the publisher’s private key are accepted |
+| **SHA-256 checksum** from the update information | Damaged or incomplete downloads |
 
-Fehlt die Prüfsumme oder stimmt etwas nicht, wird das Update **nicht** installiert und eine Meldung
-erklärt den Grund. Die Installation erfolgt ohne Administratorrechte nur für dein Benutzerkonto.
+If the checksum is missing or anything does not match, the update is **not** installed and a message
+explains why. Installation runs without administrator rights, for your user account only.
 
-## Manuell aktualisieren
+## Update manually
 
-Du kannst jederzeit den neuesten Installer von der
-[Release-Seite](https://github.com/jeffreyDarmer1443123/Nexus-RAM-Releases/releases/latest)
-herunterladen und über die vorhandene Installation installieren. Daten bleiben erhalten.
+You can download the latest installer from the
+[release page](https://github.com/jeffreyDarmer1443123/Nexus-RAM-Releases/releases/latest) at any
+time and install it over the existing installation. Data is kept.
 
-Ältere Versionen findest du unter
-[allen Releases](https://github.com/jeffreyDarmer1443123/Nexus-RAM-Releases/releases). Eine ältere
-Version wird nicht automatisch angeboten; installierst du sie manuell, kann eine Datenbank, die schon
-von einer neueren Version stammt, abgelehnt werden (Nexus RAM verändert sie dann nicht).
+Older versions are listed under
+[all releases](https://github.com/jeffreyDarmer1443123/Nexus-RAM-Releases/releases). An older version
+is never offered automatically; if you install one manually, a database that already comes from a
+newer version may be refused (Nexus RAM then leaves it unchanged).

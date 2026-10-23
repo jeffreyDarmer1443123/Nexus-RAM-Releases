@@ -1,34 +1,33 @@
-# Änderungsprotokoll
+# Changelog
 
-[← Übersicht](README.md)
+[← Overview](README.md)
 
 ## 1.0.1 – 2026-10-23
 
-- Das Aktivitätsprotokoll zeigt keine Handle-Meldungen mehr (Ergebnis der Handle-Diagnose,
-  erfolgreiches Schließen von `ROBLOX_singletonEvent`). Sie stehen weiterhin in der Logdatei.
-  Warnungen, wenn das Event nicht geschlossen werden konnte, bleiben sichtbar.
-- Vorhandene Handle-Meldungen werden beim ersten Start automatisch entfernt und bei der
-  Datenübernahme aus 0.x nicht übernommen.
+- The activity log no longer shows handle messages (result of the handle diagnostics, successful
+  closing of `ROBLOX_singletonEvent`). They are still written to the log file. Warnings when the event
+  could not be closed remain visible.
+- Existing handle messages are removed automatically on the first start and are not brought over
+  during the migration from 0.x.
 
 ## 1.0.0 – 2026-10-23
 
-Erste Version des vollständig neu entwickelten Nexus RAM.
+First version of the completely rebuilt Nexus RAM.
 
-- **Accounts:** Anmeldung im eigenen Roblox-Fenster, Sitzung einfügen, Sitzungen und Anmeldungen aus
-  Datei, reines Profil, OAuth-Bestätigung; Status, Favoriten, Gruppen, Suche, Sortierung, Kachel- und
-  Tabellenansicht, Mehrfachauswahl, Tastenkombinationen.
-- **Starten:** Place-IDs, Spiel-, Server-, Privatserver- und Teilen-Links; Startaufträge mit
-  Fortschritt und begrenzten Wiederholungen; Startvorlagen mit automatischer Fensteranordnung.
-- **Mehrere Clients:** Schließt im selbst gestarteten Client `ROBLOX_singletonEvent` (abschaltbar).
-  Starts werden ausgehandelt: Der nächste Account startet, sobald der vorherige bereit ist; der
-  Startabstand dient nur noch als Rückfall.
-- **Sitzungen:** eigene und fremde Clients, Fokussieren, Minimieren, Schließen, erzwungenes Beenden
-  eigener Clients, Auto-Rejoin, Anti-AFK.
-- **Fenster:** Anordnen als Raster, nebeneinander oder untereinander mit Monitorvorschau,
-  gespeicherte Layouts, Fensterposition pro Account.
-- **Daten:** Tresor mit AES-256-GCM und Windows DPAPI, verschlüsselte Backups, automatische
-  Sicherungen mit Wiederherstellung, Datenübernahme aus Nexus RAM 0.x, Integritätsprüfung,
-  Diagnoseexport ohne Geheimnisse.
-- **Updates:** automatische Prüfung; Installation nur mit gültiger Minisign-Signatur und passender
-  SHA-256-Prüfsumme.
-- Oberfläche auf Deutsch und Englisch, dunkles und helles Design, einstellbare Akzentfarbe.
+- **Accounts:** sign-in through an own Roblox window, pasting a session, sessions and sign-ins from
+  file, profile only, OAuth confirmation; status, favorites, groups, search, sorting, tile and table
+  view, multi-select, keyboard shortcuts.
+- **Launching:** place IDs, game, server, private server and share links; launches with progress and
+  limited retries; launch templates with automatic window arrangement.
+- **Several clients:** closes `ROBLOX_singletonEvent` in the client it launched itself (can be turned
+  off). Launches are negotiated: the next account starts as soon as the previous one is ready; the
+  launch interval is only a fallback.
+- **Sessions:** own and other clients, focus, minimize, close, force-quit own clients, auto-rejoin,
+  anti-AFK.
+- **Windows:** arrange as grid, side by side or stacked with monitor preview, saved layouts, window
+  position per account.
+- **Data:** vault with AES-256-GCM and Windows DPAPI, encrypted backups, automatic snapshots with
+  restore, migration from Nexus RAM 0.x, integrity check, diagnostics export without secrets.
+- **Updates:** automatic check; installation only with a valid Minisign signature and matching
+  SHA-256 checksum.
+- Interface in German and English, dark and light theme, adjustable accent color.

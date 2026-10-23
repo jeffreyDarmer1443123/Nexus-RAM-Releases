@@ -1,153 +1,150 @@
-# Accounts verwalten
+# Managing accounts
 
-[← Übersicht](../README.md)
+[← Overview](../README.md)
 
-## Account hinzufügen
+## Add an account
 
-**Accounts → Account hinzufügen** (oder `Strg+N`). Es gibt sechs Wege:
+**Accounts → Add account** (or `Ctrl+N`). There are six ways:
 
-| Methode | Ergebnis | Kann starten? |
+| Method | Result | Can launch? |
 | --- | --- | --- |
-| [Im Roblox-Fenster anmelden](#im-roblox-fenster-anmelden) | Account mit Sitzung | ✔ |
-| [Eigene Sitzung einfügen](#eigene-sitzung-einfügen) | Account mit Sitzung | ✔ |
-| [Sitzungen aus Datei](#sitzungen-aus-datei) | Viele Accounts mit Sitzung | ✔ |
-| [Anmeldungen aus Datei](#anmeldungen-aus-datei) | Viele Accounts mit Sitzung (du meldest dich nacheinander an) | ✔ |
-| [Nur Profil speichern](#nur-profil-speichern) | Account ohne Sitzung | erst nach Hinzufügen einer Sitzung |
-| [Mit Roblox OAuth bestätigen](#mit-roblox-oauth-bestätigen) | Account mit bestätigter Identität, ohne Sitzung | erst nach Hinzufügen einer Sitzung |
+| [Sign in through Roblox](#sign-in-through-roblox) | Account with session | ✔ |
+| [Paste your own session](#paste-your-own-session) | Account with session | ✔ |
+| [Sessions from file](#sessions-from-file) | Many accounts with session | ✔ |
+| [Sign-ins from file](#sign-ins-from-file) | Many accounts with session (you sign in one after another) | ✔ |
+| [Save profile only](#save-profile-only) | Account without session | only after adding a session |
+| [Confirm with Roblox OAuth](#confirm-with-roblox-oauth) | Account with confirmed identity, without session | only after adding a session |
 
-Bei allen Methoden kannst du gleich einen **Alias**, **Notizen** und eine **Gruppe** festlegen.
-Jeder Roblox-Account (User-ID) existiert nur einmal: Fügst du für einen schon vorhandenen Account eine
-Sitzung hinzu, erhält er die neue Sitzung; „Nur Profil speichern“ meldet dagegen, dass er bereits
-gespeichert ist.
+With every method you can set an **alias**, **notes** and a **group** right away. Each Roblox account
+(user ID) exists only once: if you add a session for an account that already exists, it receives the
+new session; “Save profile only” instead reports that it is already saved.
 
-### Im Roblox-Fenster anmelden
+### Sign in through Roblox
 
-Der einfachste und sicherste Weg.
+The easiest and safest way.
 
-1. Bestätigen: „Ich melde mich mit meinem eigenen Account an.“
-2. **Anmeldefenster öffnen** – es öffnet sich ein eigenes, abgeschottetes Fenster mit der
-   offiziellen Seite `roblox.com/login` (privater Modus, keine Verbindung zu deinem Browser).
-3. Ganz normal anmelden – inklusive CAPTCHA und Zwei-Faktor-Bestätigung.
-4. Nach erfolgreicher Anmeldung schließt sich das Fenster von selbst; Nexus RAM übernimmt nur die
-   Sitzung, prüft sie bei Roblox und speichert sie verschlüsselt.
+1. Confirm: “I am signing in with my own account.”
+2. **Open sign-in window** – a separate, isolated window opens with the official page
+   `roblox.com/login` (private mode, no connection to your browser).
+3. Sign in as usual – including CAPTCHA and two-step verification.
+4. After a successful sign-in the window closes by itself; Nexus RAM takes over only the session,
+   checks it with Roblox and stores it encrypted.
 
-Das Fenster lässt nur Roblox-Seiten über HTTPS zu und öffnet keine Popups. Schließt du es vorher,
-wird nichts gespeichert. Nach 10 Minuten ohne Anmeldung bricht der Vorgang ab.
+The window only allows Roblox pages over HTTPS and opens no pop-ups. If you close it early, nothing
+is saved. After 10 minutes without signing in, the process stops.
 
-### Eigene Sitzung einfügen
+### Paste your own session
 
-Für Fortgeschrittene: Du fügst den `.ROBLOSECURITY`-Wert **deines eigenen** Accounts ein (beginnt mit
+For advanced users: you paste the `.ROBLOSECURITY` value of **your own** account (it starts with
 `_|WARNING:-DO-NOT-SHARE-THIS.`).
 
-1. Wert in das Feld einfügen.
-2. Bestätigen: „Es ist mein eigener Account und ich verstehe das Risiko.“
-3. **Sitzung speichern** – der Wert wird bei Roblox geprüft, dem richtigen Account zugeordnet und
-   verschlüsselt gespeichert. Er wird danach nie wieder angezeigt.
+1. Paste the value into the field.
+2. Confirm: “This is my own account and I understand the risk.”
+3. **Save session** – the value is checked with Roblox, assigned to the right account and stored
+   encrypted. It is never shown again.
 
-> ⚠ Wer diesen Wert besitzt, kann sich als du anmelden. Gib ihn niemals weiter und füge niemals
-> Werte ein, die dir jemand anderes geschickt hat.
+> ⚠ Anyone who has this value can sign in as you. Never share it and never paste values someone else
+> sent you.
 
-### Sitzungen aus Datei
+### Sessions from file
 
-Importiert viele eigene Sitzungen auf einmal.
+Imports many of your own sessions at once.
 
-- Format: Textdatei (`.txt`, UTF-8), **ein `.ROBLOSECURITY`-Wert pro Zeile**.
-- Leere Zeilen und Zeilen, die mit `#` beginnen, werden ignoriert.
-- Höchstens **500 Zeilen** und **4 MB** pro Datei. Nur lokale Dateien (keine Netzlaufwerke).
-- Zeilen im Format `Benutzername:Passwort` werden abgelehnt – dafür gibt es
-  [Anmeldungen aus Datei](#anmeldungen-aus-datei).
-- Die Sitzungen werden nacheinander mit kurzem Abstand geprüft. Meldet Roblox ein Rate Limit, stoppt
-  der Import; starte ihn später erneut für die restlichen Zeilen (bereits übernommene werden nur
-  aktualisiert).
-- Das Ergebnis nennt übernommene Accounts und fehlgeschlagene **Zeilennummern** – die Werte selbst
-  werden nie angezeigt.
+- Format: text file (`.txt`, UTF-8), **one `.ROBLOSECURITY` value per line**.
+- Empty lines and lines starting with `#` are ignored.
+- At most **500 lines** and **4 MB** per file. Local files only (no network drives).
+- Lines in the format `username:password` are rejected – use
+  [Sign-ins from file](#sign-ins-from-file) for that.
+- The sessions are checked one after another with a short pause. If Roblox reports a rate limit,
+  the import stops; run it again later for the remaining lines (accounts already imported are only
+  updated).
+- The result lists imported accounts and failed **line numbers** – the values themselves are never
+  shown.
 
-### Anmeldungen aus Datei
+### Sign-ins from file
 
-Für viele Accounts, deren Passwort du kennst. Nexus RAM **automatisiert nicht die Anmeldung**,
-sondern nimmt dir nur das Abtippen ab.
+For many accounts whose password you know. Nexus RAM **does not automate the sign-in**, it only saves
+you the typing.
 
-- Format: Textdatei, **`Benutzername:Passwort` pro Zeile**; leere Zeilen und `#`-Zeilen werden
-  ignoriert; höchstens 500 Zeilen.
-- Für jede Zeile öffnet sich nacheinander das Anmeldefenster, Benutzername und Passwort sind
-  vorausgefüllt. **Anmelden, CAPTCHA und Zwei-Faktor erledigst du selbst.**
-- Die übernommene Sitzung muss zum Benutzernamen der Zeile passen.
-- Schließt du ein Anmeldefenster, wird der Rest der Datei abgebrochen.
-- Passwörter werden **nicht** gespeichert. Die Datei enthält sie aber im Klartext – **lösche sie
-  danach**.
+- Format: text file, **`username:password` per line**; empty lines and `#` lines are ignored; at most
+  500 lines.
+- For each line the sign-in window opens one after another with username and password pre-filled.
+  **You complete the sign-in, CAPTCHA and two-step verification yourself.**
+- The session taken over must belong to the username in that line.
+- If you close a sign-in window, the rest of the file is cancelled.
+- Passwords are **not** stored. The file does contain them in plain text, though – **delete it
+  afterwards**.
 
-### Nur Profil speichern
+### Save profile only
 
-Speichert nur öffentliche Profildaten (Benutzername oder User-ID). Praktisch, um Accounts schon
-einzuordnen; starten kannst du sie erst, wenn du eine Sitzung hinzufügst
-(Rechtsklick → **Sitzung hinzufügen**).
+Stores only public profile data (username or user ID). Useful to organize accounts in advance; you
+can launch them only after adding a session (right-click → **Add session**).
 
-### Mit Roblox OAuth bestätigen
+### Confirm with Roblox OAuth
 
-Bestätigt die Identität eines Accounts über den offiziellen Roblox-OAuth-Ablauf im Standardbrowser.
-Ergibt **keine** Sitzung zum Spielstart. Voraussetzung ist eine eigene OAuth-App:
+Confirms an account’s identity via the official Roblox OAuth flow in your default browser. This does
+**not** create a session for launching games. It requires your own OAuth app:
 
-1. Auf [create.roblox.com](https://create.roblox.com/) eine OAuth-2.0-App anlegen.
-2. Als Redirect-URL `http://localhost:53682/callback` eintragen (Port wie in den Einstellungen),
-   Berechtigungen `openid` und `profile`.
-3. Die Client-ID unter **Einstellungen → Accounts → Roblox-OAuth-Client-ID** eintragen.
+1. Create an OAuth 2.0 app on [create.roblox.com](https://create.roblox.com/).
+2. Enter `http://localhost:53682/callback` as redirect URL (port as in the settings), with the
+   permissions `openid` and `profile`.
+3. Enter the client ID under **Settings → Accounts → Roblox OAuth client ID**.
 
-## Status eines Accounts
+## Account status
 
-| Status | Bedeutung | Was tun? |
+| Status | Meaning | What to do |
 | --- | --- | --- |
-| Keine Sitzung | Nur Profil gespeichert | Sitzung hinzufügen |
-| Bereit | Sitzung vorhanden, startbereit | – |
-| Startet | Ein Start läuft | – |
-| Im Spiel | Client von Nexus RAM läuft | – |
-| Beendet | Client wurde geschlossen | – |
-| Prüfung nötig | Roblox verlangt eine Bestätigung (z. B. CAPTCHA) | Im Anmeldefenster neu anmelden |
-| Sitzung abgelaufen | Roblox hat die Sitzung beendet (Abmeldung, Passwortwechsel …) | Sitzung neu hinzufügen |
-| Verbindungsfehler | Roblox nicht erreichbar oder Anfrage abgelehnt | Internet prüfen, später erneut |
-| Rate Limit | Zu viele Anfragen an Roblox | Einige Minuten warten |
-| Nicht unterstützt | Der Start ist so nicht möglich (z. B. zweiter Client nachweislich blockiert) | Meldung lesen, siehe [Fehlerbehebung](fehlerbehebung.md) |
+| No session | Only the profile is stored | Add a session |
+| Ready | Session available, ready to launch | – |
+| Starting | A launch is running | – |
+| In game | A client launched by Nexus RAM is running | – |
+| Exited | The client was closed | – |
+| Check required | Roblox requires a confirmation (e.g. CAPTCHA) | Sign in again through the sign-in window |
+| Session expired | Roblox ended the session (sign-out, password change …) | Add the session again |
+| Connection error | Roblox not reachable or request rejected | Check the internet connection, try again later |
+| Rate limited | Too many requests to Roblox | Wait a few minutes |
+| Not supported | The launch is not possible this way (e.g. second client verifiably blocked) | Read the message, see [Troubleshooting](troubleshooting.md) |
 
-Accounts mit Handlungsbedarf erscheinen auch auf der **Übersicht** unter „Braucht Aufmerksamkeit“.
+Accounts that need action also appear on the **Overview** under “Needs attention”.
 
-## Accounts bearbeiten und organisieren
+## Edit and organize accounts
 
-**Rechtsklick** auf einen Account (oder das Menü „⋯“) bietet:
+**Right-click** an account (or use the “⋯” menu):
 
-| Eintrag | Funktion |
+| Entry | Function |
 | --- | --- |
-| Starten | Öffnet den Startdialog für diesen bzw. alle ausgewählten Accounts |
-| Sitzung prüfen | Fragt bei Roblox nach, ob die gespeicherte Sitzung noch gültig ist |
-| Sitzung hinzufügen | Für Accounts ohne Sitzung |
-| Bearbeiten | Alias (max. 50 Zeichen), Notizen (max. 2000 Zeichen), Gruppe |
-| Zu Favoriten / Aus Favoriten entfernen | Favoriten lassen sich gesammelt filtern |
-| In Gruppe verschieben | Gruppe zuweisen oder „Ohne Gruppe“ |
-| Profil aktualisieren | Name, Anzeigename und Profilbild neu von Roblox laden |
-| Nach oben / Nach unten | Eigene Reihenfolge (Sortierung „Eigene Reihenfolge“) |
-| Sitzung entfernen | Löscht nur die gespeicherte Sitzung, der Account bleibt |
-| Löschen | Löscht Account und Sitzung (mit Bestätigung) |
+| Launch | Opens the launch dialog for this account or all selected accounts |
+| Check session | Asks Roblox whether the stored session is still valid |
+| Add session | For accounts without a session |
+| Edit | Alias (max. 50 characters), notes (max. 2000 characters), group |
+| Add to favorites / Remove from favorites | Favorites can be filtered together |
+| Move to group | Assign a group or “No group” |
+| Refresh profile | Reload name, display name and profile picture from Roblox |
+| Move up / Move down | Custom order (sorting “Custom order”) |
+| Remove session | Deletes only the stored session; the account stays |
+| Delete | Deletes account and session (with confirmation) |
 
-**Ansicht und Ordnung:**
+**View and order:**
 
-- **Kacheln** oder **Tabelle** – umschaltbar oben rechts.
-- **Sortierung:** Eigene Reihenfolge, Benutzername, Anzeigename, Zuletzt gestartet, Hinzugefügt,
-  Status.
-- **Filter nach Gruppe, Favoriten oder „Ohne Gruppe“** – als Seitenleiste oder als Chips
-  (Einstellungen → Accounts).
-- **Suche** über das Suchfeld oben (`Strg+K`).
+- **Tiles** or **Table** – switch at the top right.
+- **Sorting:** Custom order, Username, Display name, Recently launched, Date added, Status.
+- **Filter by group, favorites or “No group”** – as a sidebar or as chips
+  (Settings → Accounts).
+- **Search** via the search field at the top (`Ctrl+K`).
 
-**Mehrfachauswahl:** `Strg+Klick` wählt einzelne Accounts dazu, `Shift+Klick` einen Bereich,
-`Strg+A` alle. Danach wirken Starten, Favoriten, Gruppe und Löschen auf alle ausgewählten Accounts.
-`Esc` hebt die Auswahl auf, `Entf` löscht (mit Bestätigung).
+**Multi-select:** `Ctrl+click` adds single accounts, `Shift+click` a range, `Ctrl+A` all of them.
+Launch, favorites, group and delete then apply to all selected accounts. `Esc` clears the
+selection, `Del` deletes (with confirmation).
 
-## Tastenkombinationen
+## Keyboard shortcuts
 
-| Tasten | Funktion |
+| Keys | Function |
 | --- | --- |
-| `Strg+1` … `Strg+8` | Bereich wechseln |
-| `Strg+K` | Accountsuche |
-| `Strg+N` | Account hinzufügen |
-| `Strg+L` | Auswahl starten |
-| `Strg+A` | Alle Accounts auswählen |
-| `Entf` | Auswahl löschen |
-| `Esc` | Auswahl aufheben |
-| `Shift`/`Strg` + Klick | Mehrfachauswahl |
+| `Ctrl+1` … `Ctrl+8` | Switch page |
+| `Ctrl+K` | Account search |
+| `Ctrl+N` | Add account |
+| `Ctrl+L` | Launch selection |
+| `Ctrl+A` | Select all accounts |
+| `Del` | Delete selection |
+| `Esc` | Clear selection |
+| `Shift`/`Ctrl` + click | Multi-select |
