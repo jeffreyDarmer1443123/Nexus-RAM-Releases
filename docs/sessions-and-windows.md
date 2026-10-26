@@ -23,6 +23,7 @@ running.
 | Enable/Disable auto-rejoin | “⋯” menu (own sessions only, when auto-rejoin is turned on) | Watch the session, see below |
 | Close | “⋯” menu, or select + **Close selection** | Ends Roblox regularly (see below) |
 | Force quit | “⋯” menu (own sessions only) | Ends the process immediately – unsaved game progress may be lost |
+| Anti-AFK for all | Top right (when anti-AFK is on) | Resets the anti-AFK timer of all own clients, see [Anti-AFK](#anti-afk) |
 | Minimize all | Top right | Minimizes all own Roblox windows |
 
 **Close** first sends Roblox the normal request to quit. If the client is still running after
@@ -65,8 +66,13 @@ jump (space bar) in each of **your own** Roblox windows.
 - Turn on: Settings → Launcher → **Anti-AFK** (default: off).
 - Interval: default 120 s per window (10–1800 s).
 - It only triggers when you have not used mouse or keyboard for at least 2 seconds and are not
-  holding a key. Afterwards your previous window is brought back to the front; minimized Roblox
+  holding a key. If a jump is due while you are busy, it follows as soon as you have been idle for
+  2 seconds. Afterwards your previous window is brought back to the front; minimized Roblox
   windows are minimized again.
+- Each window has its own timer, which starts when the window appears. To bring all clients onto
+  one schedule, click **Anti-AFK for all** in the Sessions section: every client jumps once, one
+  after another, as soon as you leave mouse and keyboard alone for 2 seconds. From then on they all
+  jump together in each interval.
 - Other Roblox clients and other programs never receive input.
 - Simulated input may conflict with the Roblox terms of use.
 

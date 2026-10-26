@@ -2,6 +2,15 @@
 
 [← Overview](README.md)
 
+## 1.0.3 – 2026-10-26
+
+- New button **Anti-AFK for all** in the Sessions section (shown while anti-AFK is on and clients
+  launched by Nexus RAM are running). It resets the anti-AFK timer of every instance: all of them
+  jump one after another as soon as you leave mouse and keyboard alone for 2 seconds, and from then
+  on they stay on the same schedule. See [Anti-AFK](docs/sessions-and-windows.md#anti-afk).
+- Fixed: if you were using mouse or keyboard at the moment a jump was due, that jump was postponed
+  by a whole interval. It now follows as soon as you have been idle for 2 seconds.
+
 ## 1.0.2 – 2026-10-23
 
 - New setting **Anonymize usernames** (Settings → General): shows a code such as “Account 3F9A”

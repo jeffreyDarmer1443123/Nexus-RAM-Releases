@@ -70,7 +70,8 @@ long as the configured launch interval, `ROBLOX_singletonEvent` could not be clo
 
 ### Anti-AFK does not jump
 Anti-AFK waits until you have not used mouse or keyboard for at least 2 seconds and are not holding
-a key. It only acts on clients launched by Nexus RAM.
+a key. It only acts on clients launched by Nexus RAM. After clicking **Anti-AFK for all**, let go of
+mouse and keyboard for a moment – the jumps start after 2 seconds without input.
 
 ### Auto-rejoin does not relaunch
 - Is auto-rejoin turned on in the settings **and** is the session marked as watched?
