@@ -21,6 +21,7 @@ running.
 | Minimize | Icon in the row | Minimizes the window |
 | Restore | “⋯” menu | Restores a minimized window |
 | Enable/Disable auto-rejoin | “⋯” menu (own sessions only, when auto-rejoin is turned on) | Watch the session, see below |
+| Problem tag | Next to the account name | “Connection lost” or “Not responding”, see [Problem detection](#problem-detection) |
 | Close | “⋯” menu, or select + **Close selection** | Ends Roblox regularly (see below) |
 | Force quit | “⋯” menu (own sessions only) | Ends the process immediately – unsaved game progress may be lost |
 | Anti-AFK for all | Top right (when anti-AFK is on) | Resets the anti-AFK timer of all own clients, see [Anti-AFK](#anti-afk) |
@@ -57,6 +58,35 @@ automatically when a relaunch would be pointless: expired session, confirmation 
 rate limit, missing session, Roblox not installed or launch not supported. Running, paused or
 abandoned rejoins are shown at the top of the Sessions section, where you can **cancel** or
 **resume** them.
+
+## Problem detection
+
+A client that lost its connection usually stays open and just shows Roblox’s error dialog – the
+process does not end, so auto-rejoin alone would not notice it. Nexus RAM therefore checks every
+5 seconds whether a client it launched is stuck:
+
+| Problem | How it is detected | Tag at the session |
+| --- | --- | --- |
+| **Lost connection** | From the log file Roblox writes for each client (`%LOCALAPPDATA%\Roblox\logs`, read-only). A disconnect counts only if no new join follows within 20 seconds – teleports and leaving the game normally are ignored. | “Connection lost”, with the error code if known (e.g. 277) |
+| **Frozen** | Windows reports the Roblox window as “not responding” without a break for the configured time (default 90 s). | “Not responding” |
+
+**What happens then:**
+
+- Always: the tag in the Sessions section, an entry in the activity log and – if enabled – a
+  notification.
+- **Session watched by auto-rejoin** (and auto-rejoin turned on): the stuck client is ended and
+  auto-rejoin takes over – it asks or relaunches automatically, as configured.
+- **Otherwise** the client keeps running. Reconnect in Roblox’s own dialog (the tag disappears by
+  itself) or use “⋯” → **Force quit** and launch the account again.
+
+Good to know:
+
+- Nexus RAM only reads the log files; it does not access the Roblox process itself. Log contents
+  are neither stored nor sent anywhere.
+- A log file is only assigned to a session when the match is unique (time in the file name ↔ client
+  start). If two clients start at almost the same moment, that session is not checked for lost
+  connections; freeze detection still works.
+- Turn off or adjust: Settings → Launcher → **Problem detection**.
 
 ## Anti-AFK
 

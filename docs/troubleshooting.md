@@ -75,6 +75,10 @@ mouse and keyboard for a moment – the jumps start after 2 seconds without inpu
 
 ### Auto-rejoin does not relaunch
 - Is auto-rejoin turned on in the settings **and** is the session marked as watched?
+- After a lost connection the client stays open with Roblox’s error dialog. Nexus RAM ends it once
+  the session shows “Connection lost” – this needs **Detect lost connections** (Settings →
+  Launcher → Problem detection). If two clients were started at almost the same moment, their log
+  files cannot be matched uniquely; those sessions are not checked for lost connections.
 - Did you close the client yourself through Nexus RAM? Then no rejoin is intended.
 - At the top of the **Sessions** section: is the rejoin paused or abandoned? The reason is shown
   next to it; **Resume** continues it.

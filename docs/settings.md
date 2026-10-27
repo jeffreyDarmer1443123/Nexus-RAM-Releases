@@ -54,6 +54,9 @@ German.
 | Behavior | Ask | Ask, Automatic |
 | Maximum attempts | 3 | 1–10 |
 | Wait time (s) | 15 | 5–600 – starting value, doubles with each attempt (max. 10 min) |
+| Detect lost connections | on | Reads the Roblox log files, see [Problem detection](sessions-and-windows.md#problem-detection) |
+| Detect frozen clients | on | When Windows keeps reporting the window as “not responding” |
+| Frozen after (s) | 90 | 30–600 |
 
 ## Windows
 

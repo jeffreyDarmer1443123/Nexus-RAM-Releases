@@ -2,6 +2,20 @@
 
 [← Overview](README.md)
 
+## 1.0.4 – 2026-10-27
+
+- **Problem detection** for clients launched by Nexus RAM (Settings → Launcher → Problem
+  detection, both on by default):
+  - **Lost connection:** detected from the log files Roblox writes anyway (read-only). Teleports and
+    leaving the game normally do not count – a disconnect counts only if no new join follows within
+    20 seconds.
+  - **Frozen client:** Windows keeps reporting the Roblox window as “not responding” (default
+    90 seconds, adjustable 30–600).
+- The session gets a “Connection lost (277)” or “Not responding” tag, plus an activity entry and a
+  notification. For sessions watched by auto-rejoin, the stuck client is ended and auto-rejoin takes
+  over (ask or automatic, as configured). See
+  [Problem detection](docs/sessions-and-windows.md#problem-detection).
+
 ## 1.0.3 – 2026-10-26
 
 - New button **Anti-AFK for all** in the Sessions section (shown while anti-AFK is on and clients

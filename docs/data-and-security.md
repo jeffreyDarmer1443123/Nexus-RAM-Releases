@@ -84,7 +84,9 @@ first. No clients may be running and no launches may be active.
 
 - No telemetry, no analytics, no account with the developer. Your data only leaves the PC towards
   Roblox (for the app’s functions) and GitHub (only for the update check, without user data).
-- Nexus RAM does not read browser data or passwords of other programs.
+- Nexus RAM does not read browser data or passwords of other programs. For
+  [problem detection](sessions-and-windows.md#problem-detection) it reads the Roblox client log files
+  in `%LOCALAPPDATA%\Roblox\logs` (read-only, contents are neither stored nor sent anywhere).
 
 ## Network destinations
 

@@ -31,7 +31,7 @@ maintained separately.
 | [Managing accounts](docs/accounts.md) | All ways to add accounts, statuses, sorting, favorites, multi-select |
 | [Groups and launch templates](docs/groups-and-templates.md) | Bundling accounts, saving recurring launches |
 | [Launching games](docs/launching-games.md) | Launcher, supported links, launches, several clients at once |
-| [Sessions and windows](docs/sessions-and-windows.md) | Running clients, closing, auto-rejoin, anti-AFK, arranging windows |
+| [Sessions and windows](docs/sessions-and-windows.md) | Running clients, closing, auto-rejoin, problem detection, anti-AFK, arranging windows |
 | [Settings](docs/settings.md) | Every setting with its default and allowed range |
 | [Data, backups and security](docs/data-and-security.md) | Storage locations, vault, backups, snapshots, privacy, network destinations |
 | [Updates](docs/updates.md) | How updates are checked and installed safely |
