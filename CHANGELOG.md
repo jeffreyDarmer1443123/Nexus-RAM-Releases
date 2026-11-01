@@ -2,6 +2,34 @@
 
 [← Overview](README.md)
 
+## 1.0.5 – 2026-11-01
+
+- **Manage other Roblox clients:** clients you started yourself (for example from the browser) can
+  now be included. Sessions → **Actions** → **Manage in Nexus RAM**, confirm, and Nexus RAM removes
+  the lock that prevents further Roblox clients (when “Allow multiple clients” is on) and includes
+  the client in anti-AFK. **Stop managing** only ends anti-AFK. Managed clients are never
+  force-quit. See [Managing other clients](docs/sessions-and-windows.md#managing-other-clients).
+- **Problem detection is more reliable:**
+  - Nexus RAM now reads the actual Roblox log format, and text written by games is ignored.
+  - A lost connection counts only when Roblox logs an error code (for example 277); teleports never
+    count.
+  - Clients launched a few seconds apart are matched to their log files correctly.
+  - Nexus RAM only ends a stuck client when auto-rejoin can really relaunch it: automatic mode,
+    attempts left, session saved, another client allowed. Otherwise the client keeps running.
+- **Auto-rejoin:**
+  - **Cancel** now also stops a launch that is already running.
+  - Turning auto-rejoin off during the waiting time prevents the launch.
+  - A slow launch no longer pauses auto-rejoin by mistake.
+- **Frozen windows:** anti-AFK and saved window positions skip windows that do not respond.
+- **Security hardening:**
+  - Network and device paths are blocked in every file and folder selection.
+  - Stricter limits apply when importing backups.
+  - Events only reach the main window.
+- **Accessibility:**
+  - Confirmation dialogs read out their explanation and return the focus to where you were.
+  - The action menus are named per row.
+  - Notifications stay visible longer.
+
 ## 1.0.4 – 2026-10-27
 
 - **Problem detection** for clients launched by Nexus RAM (Settings → Launcher → Problem

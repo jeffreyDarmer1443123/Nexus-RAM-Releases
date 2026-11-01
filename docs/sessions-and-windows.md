@@ -7,7 +7,8 @@
 The **Sessions** section shows all running Roblox clients in two tables:
 
 - **Launched by Nexus RAM** – with account, game, PID, uptime, CPU and memory.
-- **Other Roblox clients** – not launched by Nexus RAM, not assigned to any account.
+- **Other Roblox clients** – not launched by Nexus RAM, not assigned to any account. You can
+  [manage](#managing-other-clients) them in Nexus RAM.
 
 The values update continuously (interval under Settings → Launcher → Process monitoring). Your own
 sessions are still recognized as your own after Nexus RAM restarts, as long as the client keeps
@@ -19,12 +20,13 @@ running.
 | --- | --- | --- |
 | Focus | Icon in the row | Brings the Roblox window to the front |
 | Minimize | Icon in the row | Minimizes the window |
-| Restore | “⋯” menu | Restores a minimized window |
+| Restore | “Actions” menu (“⋯”) | Restores a minimized window |
+| Manage in Nexus RAM / Stop managing | “Actions” menu (other clients only) | See [Managing other clients](#managing-other-clients) |
 | Enable/Disable auto-rejoin | “⋯” menu (own sessions only, when auto-rejoin is turned on) | Watch the session, see below |
 | Problem tag | Next to the account name | “Connection lost” or “Not responding”, see [Problem detection](#problem-detection) |
 | Close | “⋯” menu, or select + **Close selection** | Ends Roblox regularly (see below) |
 | Force quit | “⋯” menu (own sessions only) | Ends the process immediately – unsaved game progress may be lost |
-| Anti-AFK for all | Top right (when anti-AFK is on) | Resets the anti-AFK timer of all own clients, see [Anti-AFK](#anti-afk) |
+| Anti-AFK for all | Top right (when anti-AFK is on) | Resets the anti-AFK timer of all own and managed clients, see [Anti-AFK](#anti-afk) |
 | Minimize all | Top right | Minimizes all own Roblox windows |
 
 **Close** first sends Roblox the normal request to quit. If the client is still running after
@@ -32,6 +34,30 @@ running.
 tells you how many were closed regularly and how many were ended. You are asked before closing
 (can be turned off under Settings → Launcher → “Confirm closing sessions”). Other clients can be
 closed but never force-quit.
+
+## Managing other clients
+
+Roblox clients you started yourself – for example from the browser – appear under **Other Roblox
+clients**. You can include them in Nexus RAM without assigning an account:
+
+1. Open the **Actions** menu (“⋯”) of the client and choose **Manage in Nexus RAM**.
+2. Confirm the dialog. Nexus RAM then
+   - removes the lock that prevents further Roblox clients (`ROBLOX_singletonEvent`), so more
+     accounts can run next to it. This only happens when **Allow multiple clients** is on
+     (Settings → Launcher); otherwise the message offers to open the settings. The lock cannot be
+     restored.
+   - includes the client in [anti-AFK](#anti-afk).
+3. The row now shows the tag **Managed**.
+
+**Stop managing** in the same menu only ends anti-AFK; the lock stays removed.
+
+Good to know:
+
+- Managed clients are never force-quit by Nexus RAM. Problem detection, saved window positions and
+  auto-rejoin stay limited to clients launched by Nexus RAM.
+- The selection survives a restart of Nexus RAM as long as the same client keeps running. When the
+  client ends, it is removed automatically.
+- Up to 32 clients can be managed at the same time.
 
 ## Auto-rejoin
 
@@ -67,16 +93,16 @@ process does not end, so auto-rejoin alone would not notice it. Nexus RAM theref
 
 | Problem | How it is detected | Tag at the session |
 | --- | --- | --- |
-| **Lost connection** | From the log file Roblox writes for each client (`%LOCALAPPDATA%\Roblox\logs`, read-only). A disconnect counts only if no new join follows within 20 seconds – teleports and leaving the game normally are ignored. | “Connection lost”, with the error code if known (e.g. 277) |
+| **Lost connection** | From the log file Roblox writes for each client (`%LOCALAPPDATA%\Roblox\logs`, read-only). A disconnect counts only when Roblox logs an error code (e.g. 277) and no new join follows within 20 seconds. Teleports, leaving the game normally and text written by games are ignored. | “Connection lost” with the error code |
 | **Frozen** | Windows reports the Roblox window as “not responding” without a break for the configured time (default 90 s). | “Not responding” |
 
 **What happens then:**
 
 - Always: the tag in the Sessions section, an entry in the activity log and – if enabled – a
   notification.
-- **Session watched by auto-rejoin** (and auto-rejoin turned on): the stuck client is ended and
-  auto-rejoin takes over – it asks or relaunches automatically, as configured.
-- **Otherwise** the client keeps running. Reconnect in Roblox’s own dialog (the tag disappears by
+- **Session watched by auto-rejoin** with behavior **Automatic**, attempts left and another client
+  allowed: the stuck client is ended and auto-rejoin relaunches it.
+- **Otherwise** – for example with behavior **Ask** – the client keeps running. Reconnect in Roblox’s own dialog (the tag disappears by
   itself) or use “⋯” → **Force quit** and launch the account again.
 
 Good to know:
@@ -84,14 +110,15 @@ Good to know:
 - Nexus RAM only reads the log files; it does not access the Roblox process itself. Log contents
   are neither stored nor sent anywhere.
 - A log file is only assigned to a session when the match is unique (time in the file name ↔ client
-  start). If two clients start at almost the same moment, that session is not checked for lost
-  connections; freeze detection still works.
+  start). If two clients start within about 5 seconds of each other, those sessions are not checked
+  for lost connections; freeze detection still works.
 - Turn off or adjust: Settings → Launcher → **Problem detection**.
 
 ## Anti-AFK
 
 Roblox kicks idle players after about 20 minutes. Anti-AFK prevents this by regularly triggering a
-jump (space bar) in each of **your own** Roblox windows.
+jump (space bar) in each of **your own** Roblox windows and in clients you
+[manage](#managing-other-clients).
 
 - Turn on: Settings → Launcher → **Anti-AFK** (default: off).
 - Interval: default 120 s per window (10–1800 s).
@@ -103,7 +130,8 @@ jump (space bar) in each of **your own** Roblox windows.
   one schedule, click **Anti-AFK for all** in the Sessions section: every client jumps once, one
   after another, as soon as you leave mouse and keyboard alone for 2 seconds. From then on they all
   jump together in each interval.
-- Other Roblox clients and other programs never receive input.
+- Other Roblox clients that you have not managed, and other programs, never receive input.
+- Anti-AFK skips windows that do not respond and tries again on the next pass.
 - Simulated input may conflict with the Roblox terms of use.
 
 ## Arranging windows

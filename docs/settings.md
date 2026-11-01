@@ -46,7 +46,7 @@ German.
 | Retries on network errors | 1 | 0–5 |
 | Confirm closing sessions | on | Asks before closing Roblox |
 | Process monitoring (s) | 2 | 1–10 – how often processes, CPU and memory are updated |
-| Allow multiple clients | on | Closes `ROBLOX_singletonEvent` in the own client, see [Several clients](launching-games.md#several-clients-at-the-same-time) |
+| Allow multiple clients | on | Closes `ROBLOX_singletonEvent` in the own client and in clients you [manage](sessions-and-windows.md#managing-other-clients), see [Several clients](launching-games.md#several-clients-at-the-same-time) |
 | Allow a probe for parallel clients | off | On the next second launch, checks whether both clients keep running |
 | Anti-AFK | off | See [Anti-AFK](sessions-and-windows.md#anti-afk) |
 | Interval (s) | 120 | 10–1800 |

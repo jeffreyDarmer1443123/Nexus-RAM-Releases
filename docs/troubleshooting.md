@@ -70,15 +70,18 @@ long as the configured launch interval, `ROBLOX_singletonEvent` could not be clo
 
 ### Anti-AFK does not jump
 Anti-AFK waits until you have not used mouse or keyboard for at least 2 seconds and are not holding
-a key. It only acts on clients launched by Nexus RAM. After clicking **Anti-AFK for all**, let go of
+a key. It only acts on clients launched by Nexus RAM and on clients you have
+[managed](sessions-and-windows.md#managing-other-clients) – a client started from the browser needs
+**Manage in Nexus RAM** first. After clicking **Anti-AFK for all**, let go of
 mouse and keyboard for a moment – the jumps start after 2 seconds without input.
 
 ### Auto-rejoin does not relaunch
 - Is auto-rejoin turned on in the settings **and** is the session marked as watched?
 - After a lost connection the client stays open with Roblox’s error dialog. Nexus RAM ends it once
   the session shows “Connection lost” – this needs **Detect lost connections** (Settings →
-  Launcher → Problem detection). If two clients were started at almost the same moment, their log
-  files cannot be matched uniquely; those sessions are not checked for lost connections.
+  Launcher → Problem detection) and the behavior **Automatic**. With **Ask** the stuck client keeps
+  running. If two clients were started within about 5 seconds of each other, their log files
+  cannot be matched uniquely; those sessions are not checked for lost connections.
 - Did you close the client yourself through Nexus RAM? Then no rejoin is intended.
 - At the top of the **Sessions** section: is the rejoin paused or abandoned? The reason is shown
   next to it; **Resume** continues it.
